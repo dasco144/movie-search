@@ -1,0 +1,41 @@
+.movie-container {
+  display: flex;
+  align-items: flex-start;
+  height: 100%;
+
+  .poster {
+    border-radius: 10px;
+    flex: 0;
+    height: 100%;
+  }
+
+  .details {
+    flex: 1;
+    margin-left: 10px;
+
+    mat-card-title {
+      display: flex;
+    }
+
+    section {
+      display: flex;
+
+      > mat-list {
+        flex: 50%;
+      }
+    }
+
+    mat-list-item {
+      ::ng-deep {
+        h3 {
+          font-weight: bold;
+          margin-right: 10px;
+        }
+
+        span {
+          white-space: normal;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,123 @@
+<div class="movie-container">
+  <img [src]="movie | moviePoster" [alt]="movie.Title" class="poster" />
+
+  <mat-card class="details">
+    <youtube-player [videoId]="videoId"></youtube-player>
+
+    <mat-card-title>
+      <h1 class="mat-headline">{{ movie.Title }}</h1>
+    </mat-card-title>
+
+    <mat-card-subtitle>
+      <h2 class="mat-title">{{ movie.Year }}</h2>
+    </mat-card-subtitle>
+
+    <mat-card-content>
+      <section>
+        <mat-list role="list">
+          <mat-list-item role="listitem">
+            <h3 matLine>Rated</h3>
+            <span matLine>{{ movie.Rated }}</span>
+          </mat-list-item>
+
+          <mat-list-item role="listitem">
+            <h3 matLine>Released</h3>
+            <span matLine>{{ movie.Released }}</span>
+          </mat-list-item>
+
+          <mat-list-item role="listitem">
+            <h3 matLine>Runtime</h3>
+            <span matLine>{{ movie.Runtime }}</span>
+          </mat-list-item>
+
+          <mat-list-item role="listitem">
+            <h3 matLine>Genre</h3>
+            <span matLine>{{ movie.Genre }}</span>
+          </mat-list-item>
+        </mat-list>
+
+        <mat-list role="list">
+          <mat-list-item role="listitem">
+            <h3 matLine>Director</h3>
+            <span matLine>{{ movie.Director }}</span>
+          </mat-list-item>
+
+          <mat-list-item role="listitem">
+            <h3 matLine>Writer</h3>
+            <span matLine>{{ movie.Writer }}</span>
+          </mat-list-item>
+
+          <mat-list-item role="listitem">
+            <h3 matLine>Actors</h3>
+            <span matLine>{{ movie.Actors }}</span>
+          </mat-list-item>
+        </mat-list>
+      </section>
+
+      <mat-divider inset></mat-divider>
+
+      <section>
+        <mat-list role="list">
+          <mat-list-item role="listitem">
+            <h3 matLine>Plot</h3>
+            <span matLine>{{ movie.Plot }}</span>
+          </mat-list-item>
+
+          <mat-list-item role="listitem">
+            <h3 matLine>Language</h3>
+            <span matLine>{{ movie.Language }}</span>
+          </mat-list-item>
+
+          <mat-list-item role="listitem">
+            <h3 matLine>Country</h3>
+            <span matLine>{{ movie.Country }}</span>
+          </mat-list-item>
+
+          <mat-list-item role="listitem">
+            <h3 matLine>DVD Release Date</h3>
+            <span matLine>{{ movie.DVD }}</span>
+          </mat-list-item>
+
+          <mat-list-item role="listitem">
+            <h3 matLine>Box Office</h3>
+            <span matLine>{{ movie.BoxOffice }}</span>
+          </mat-list-item>
+        </mat-list>
+
+        <mat-list>
+          <mat-list-item role="listitem">
+            <h3 matLine>IMDB ID</h3>
+            <span matLine>{{ movie.imdbID }}</span>
+          </mat-list-item>
+
+          <mat-list-item role="listitem">
+            <h3 matLine>IMDB Votes</h3>
+            <span matLine>{{ movie.imdbVotes }}</span>
+          </mat-list-item>
+
+          <mat-list-item role="listitem">
+            <h3 matLine>Ratings</h3>
+
+            <span matLine *ngFor="let rating of movie.Ratings">
+              {{ rating.Source }} - {{ rating.Value }}
+            </span>
+          </mat-list-item>
+
+          <mat-list-item role="listitem">
+            <h3 matLine>Awards</h3>
+            <span matLine>{{ movie.Awards }}</span>
+          </mat-list-item>
+        </mat-list>
+      </section>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-button (click)="toggleFavourite()">
+        <mat-icon *ngIf="(isFavourited$ | async) === false">
+          star_outline
+        </mat-icon>
+        <mat-icon *ngIf="(isFavourited$ | async) === true"> star </mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

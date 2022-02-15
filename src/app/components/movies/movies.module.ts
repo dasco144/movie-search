@@ -4,15 +4,16 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MoviesComponent } from './movies.component';
 import { MoviesRoutingModule } from './movies-routing.module';
-import { MovieDetailComponent } from '../movie-detail/movie-detail.component';
+import { MovieDetailModule } from './movie-detail/movie-detail.module';
 
 @NgModule({
-  declarations: [MoviesComponent, MovieDetailComponent],
+  declarations: [MoviesComponent],
   imports: [
     CommonModule,
     MoviesRoutingModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
+    MovieDetailModule,
   ],
 })
 export class MoviesModule {}
