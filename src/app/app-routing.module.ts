@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SearchComponent } from './components/search/search.component';
 
 const routes: Routes = [
   {
-    path: 'results',
+    path: '',
+    component: SearchComponent,
+  },
     loadChildren: () =>
       import('./results/results.module').then((m) => m.ResultsModule),
   },

@@ -1,0 +1,21 @@
+<div class="search-wrapper">
+  <form (ngSubmit)="onSubmit()" #form="ngForm">
+    <mat-form-field appearance="fill" type="search">
+      <input
+        matInput
+        name="searchValue"
+        placeholder="Search for your movie here!"
+        [(ngModel)]="searchValue"
+        required
+      />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <div class="buttons">
+      <button mat-raised-button color="primary" type="submit">Search</button>
+      <button mat-raised-button color="primary" type="submit">
+        I'm feeling lucky
+      </button>
+    </div>
+  </form>
+</div>

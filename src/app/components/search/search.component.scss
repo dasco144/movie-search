@@ -1,0 +1,21 @@
+.search-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  mat-form-field {
+    font-size: 16px;
+    width: clamp(400px, 60vw, 800px);
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+
+    button:first-of-type {
+      margin-right: 5px;
+    }
+  }
+}

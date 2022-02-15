@@ -1,0 +1,24 @@
+@use "../styles.scss" as theme;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sidenav-container {
+  flex: 1;
+
+  > mat-drawer {
+    width: 200px;
+  }
+}
+
+.main-content {
+  padding: 20px;
+  height: calc(100% - 20px * 2);
+}
+
+// TODO Try style this according to the material theme
+// .router-link-active {
+// }
