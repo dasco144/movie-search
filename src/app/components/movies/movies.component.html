@@ -1,0 +1,15 @@
+<section class="movies-container">
+  <div *ngIf="movies$ | async as movies; else spinner" class="movies-grid">
+    <div *ngFor="let movie of movies" class="movie" (click)="goToMovie(movie)">
+      <div class="overlay"></div>
+      <img [src]="movie.Poster" [alt]="movie.Title" />
+      <div class="title">{{ movie.Title }} ({{ movie.Year }})</div>
+    </div>
+  </div>
+
+  <mat-paginator [hidePageSize]="true"></mat-paginator>
+
+  <ng-template #spinner>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+</section>

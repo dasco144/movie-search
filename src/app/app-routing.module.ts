@@ -7,8 +7,10 @@ const routes: Routes = [
     path: '',
     component: SearchComponent,
   },
+  {
+    path: 'movies',
     loadChildren: () =>
-      import('./results/results.module').then((m) => m.ResultsModule),
+      import('./components/movies/movies.module').then((m) => m.MoviesModule),
   },
 ];
 
