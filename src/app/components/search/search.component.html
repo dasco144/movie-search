@@ -12,8 +12,15 @@
     </mat-form-field>
 
     <div class="buttons">
+      <!-- Enter button will trigger search via the submit button type -->
       <button mat-raised-button color="primary" type="submit">Search</button>
-      <button mat-raised-button color="primary" type="submit">
+      <!-- I'm feeling lucky button needs to be triggered by a button click -->
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="luckySearch()"
+      >
         I'm feeling lucky
       </button>
     </div>
