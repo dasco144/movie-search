@@ -7,3 +7,8 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+// Increase the font size a bit to make it more easily readable
+.mat-tooltip {
+  font-size: 0.8rem;
+}

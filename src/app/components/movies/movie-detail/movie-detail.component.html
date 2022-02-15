@@ -113,10 +113,18 @@
 
     <mat-card-actions>
       <button mat-button (click)="toggleFavourite()">
-        <mat-icon *ngIf="(isFavourited$ | async) === false">
+        <mat-icon
+          *ngIf="(isFavourited$ | async) === false"
+          matTooltip="Add to favourites"
+        >
           star_outline
         </mat-icon>
-        <mat-icon *ngIf="(isFavourited$ | async) === true"> star </mat-icon>
+        <mat-icon
+          *ngIf="(isFavourited$ | async) === true"
+          matTooltip="Remove from favourites"
+        >
+          star
+        </mat-icon>
       </button>
     </mat-card-actions>
   </mat-card>
