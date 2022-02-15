@@ -5,6 +5,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MoviesComponent } from './movies.component';
 import { MoviesRoutingModule } from './movies-routing.module';
 import { MovieDetailModule } from './movie-detail/movie-detail.module';
+import { CommonComponentsModule } from '../common/common-components.module';
 
 @NgModule({
   declarations: [MoviesComponent],
@@ -14,6 +15,7 @@ import { MovieDetailModule } from './movie-detail/movie-detail.module';
     MatProgressSpinnerModule,
     MatPaginatorModule,
     MovieDetailModule,
+    CommonComponentsModule,
   ],
 })
 export class MoviesModule {}

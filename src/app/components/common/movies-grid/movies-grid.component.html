@@ -1,0 +1,21 @@
+<div class="movies-grid">
+  <div *ngFor="let movie of movies" class="movie">
+    <div class="overlay">
+      <mat-icon
+        *ngIf="!(favourites$ | async)?.includes(movie.imdbID)"
+        (click)="toggleFavourite(movie.imdbID)"
+      >
+        star_outline
+      </mat-icon>
+      <mat-icon
+        *ngIf="(favourites$ | async)?.includes(movie.imdbID)"
+        (click)="toggleFavourite(movie.imdbID)"
+      >
+        star
+      </mat-icon>
+      <mat-icon (click)="goToMovie(movie)">open_in_new</mat-icon>
+    </div>
+    <img [src]="movie | moviePoster" [alt]="movie.Title" />
+    <div class="title">{{ movie.Title }} ({{ movie.Year }})</div>
+  </div>
+</div>

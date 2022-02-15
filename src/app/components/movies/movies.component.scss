@@ -1,63 +1,13 @@
 .movies-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
   height: 100%;
   margin-left: 20%;
   margin-right: 20%;
 
-  .movies-grid {
-    display: grid;
-    grid-template-columns: repeat(5, calc(100% / 5 - 8px));
-    grid-template-rows: repeat(2, 45%);
-    gap: 10px;
-    width: 100%;
-    height: 100%;
-
-    .movie {
-      display: block;
-      overflow: hidden;
-      position: relative;
-      border-radius: 5px;
-      cursor: pointer;
-
-      &:hover {
-        img {
-          transform: translate(-50%, -50%) scale(1.05);
-        }
-
-        .overlay {
-          opacity: 1;
-        }
-      }
-
-      img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(1);
-        backface-visibility: hidden;
-        transition: transform 0.35s;
-      }
-
-      .overlay {
-        background-color: rgba(0, 0, 0, 0.1);
-        opacity: 0;
-        transition: opacity 0.35s;
-        position: absolute;
-        inset: 0;
-      }
-
-      .title {
-        position: absolute;
-        background: rgba(0, 0, 0, 0.75);
-        bottom: 0;
-        width: 100%;
-      }
-    }
-  }
-
   mat-spinner {
     align-self: center;
+    margin: auto 0;
   }
 }
