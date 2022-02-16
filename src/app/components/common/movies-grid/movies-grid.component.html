@@ -3,19 +3,33 @@
     <div class="overlay">
       <mat-icon
         *ngIf="!(favourites$ | async)?.includes(movie.imdbID)"
+        matTooltip="Add to favorites"
+        [matTooltipShowDelay]="2000"
         (click)="toggleFavourite(movie.imdbID)"
       >
         star_outline
       </mat-icon>
+
       <mat-icon
         *ngIf="(favourites$ | async)?.includes(movie.imdbID)"
+        matTooltip="Remove from favorites"
+        [matTooltipShowDelay]="2000"
         (click)="toggleFavourite(movie.imdbID)"
       >
         star
       </mat-icon>
-      <mat-icon (click)="goToMovie(movie)">open_in_new</mat-icon>
+
+      <mat-icon
+        matTooltip="Navigate to movie details"
+        [matTooltipShowDelay]="2000"
+        (click)="goToMovie(movie)"
+      >
+        open_in_new
+      </mat-icon>
     </div>
+
     <img [src]="movie | moviePoster" [alt]="movie.Title" />
+
     <div class="title">{{ movie.Title }} ({{ movie.Year }})</div>
   </div>
 </div>
