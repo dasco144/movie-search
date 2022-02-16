@@ -1,5 +1,3 @@
-@use "../styles.scss" as theme;
-
 :host {
   display: flex;
   flex-direction: column;
@@ -19,6 +17,10 @@
   height: calc(100% - 20px * 2);
 }
 
-// TODO Try style this according to the material theme
-// .router-link-active {
-// }
+.router-link-active {
+  background-color: lightgray;
+}
+
+app-theme-selector {
+  margin-left: auto;
+}

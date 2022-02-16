@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ApiKeyInterceptor } from './interceptors/api-key.interceptor';
 import { SearchComponent } from './components/search/search.component';
+import { CommonComponentsModule } from './components/common/common-components.module';
 
 @NgModule({
   declarations: [AppComponent, SearchComponent],
@@ -31,6 +32,7 @@ import { SearchComponent } from './components/search/search.component';
     MatInputModule,
     FormsModule,
     HttpClientModule,
+    CommonComponentsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiKeyInterceptor, multi: true },
