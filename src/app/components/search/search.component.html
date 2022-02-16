@@ -1,14 +1,20 @@
 <div class="search-wrapper">
-  <form (ngSubmit)="onSubmit()" #form="ngForm">
-    <mat-form-field appearance="fill" type="search">
+  <form (ngSubmit)="onSubmit(search)" #searchForm="ngForm">
+    <mat-form-field appearance="fill">
       <input
         matInput
-        name="searchValue"
+        id="search"
+        name="search"
         placeholder="Search for your movie here!"
         [(ngModel)]="searchValue"
+        type="search"
+        #search="ngModel"
         required
       />
       <mat-icon matSuffix>search</mat-icon>
+      <mat-error *ngIf="search.invalid && (search.dirty || search.touched)">
+        A search term is required
+      </mat-error>
     </mat-form-field>
 
     <div class="buttons">
@@ -19,7 +25,7 @@
         mat-raised-button
         color="primary"
         type="button"
-        (click)="luckySearch()"
+        (click)="luckySearch(search)"
       >
         I'm feeling lucky
       </button>

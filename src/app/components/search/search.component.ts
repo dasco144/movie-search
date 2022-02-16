@@ -2,9 +2,9 @@ import {
   AfterViewInit,
   ChangeDetectorRef,
   Component,
-  OnInit,
   ViewChild,
 } from '@angular/core';
+import { NgModel } from '@angular/forms';
 import { MatInput } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { first, map, switchMap } from 'rxjs';
@@ -35,14 +35,28 @@ export class SearchComponent implements AfterViewInit {
     this.cdRef.detectChanges();
   }
 
-  onSubmit(): void {
+  onSubmit(formModel: NgModel): void {
+    // Validate the form model to ensure it is valid, if not then force
+    // the error to show by marking the control as touched
+    if (formModel.invalid) {
+      formModel.control.markAsTouched();
+      return;
+    }
+
     // Trigger the navigation to the movies route with the current search value as a query param
     void this.router.navigate(['/movies'], {
       queryParams: { search: this.searchValue },
     });
   }
 
-  luckySearch(): void {
+  luckySearch(formModel: NgModel): void {
+    // Validate the form model to ensure it is valid, if not then force
+    // the error to show by marking the control as touched
+    if (formModel.invalid) {
+      formModel.control.markAsTouched();
+      return;
+    }
+
     // Trigger the search with the current search value. We can use the default search since the api
     // doesn't provided a way to get a specific number of results. You can only get 10 at a time while searching
     // so I'll take the first result from the first page
