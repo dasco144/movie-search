@@ -1,9 +1,19 @@
 <section class="movies-container">
   <ng-container *ngIf="movies$ | async as movies; else spinner">
-    <app-movies-grid [movies]="movies"> </app-movies-grid>
+    <app-movies-grid *ngIf="movies.length; else noMovies" [movies]="movies">
+    </app-movies-grid>
+
+    <ng-template #noMovies>
+      <h1 class="headline">No movies found for search term</h1>
+    </ng-template>
   </ng-container>
 
-  <mat-paginator [hidePageSize]="true"></mat-paginator>
+  <mat-paginator
+    [length]="moviesCount"
+    [pageSize]="pageSize"
+    [hidePageSize]="true"
+    (page)="search($event.pageIndex + 1)"
+  ></mat-paginator>
 
   <ng-template #spinner>
     <mat-spinner></mat-spinner>
