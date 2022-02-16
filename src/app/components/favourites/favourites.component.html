@@ -2,7 +2,15 @@
   <ng-container
     *ngIf="favouriteMovies$ | async as favouriteMovies; else spinner"
   >
-    <app-movies-grid [movies]="favouriteMovies"> </app-movies-grid>
+    <app-movies-grid
+      *ngIf="favouriteMovies.length; else noFavourites"
+      [movies]="favouriteMovies"
+    >
+    </app-movies-grid>
+
+    <ng-template #noFavourites>
+      <h1 class="headline">No favourites set</h1>
+    </ng-template>
   </ng-container>
 
   <ng-template #spinner>
