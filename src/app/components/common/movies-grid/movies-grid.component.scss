@@ -49,17 +49,15 @@
       mat-icon {
         cursor: pointer;
         padding: 0 10px;
-
-        &:hover {
-          // TODO make this use the theme primary/accent color
-          color: gray;
-        }
+        color: white;
       }
     }
 
     .title {
       position: absolute;
       background: rgba(0, 0, 0, 0.85);
+      color: white;
+      padding: 0 10px;
       bottom: 0;
       width: 100%;
       z-index: 2;
