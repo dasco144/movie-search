@@ -5,8 +5,8 @@
   <span>Movie Search</span>
 </mat-toolbar>
 
-<mat-drawer-container class="sidenav-container">
-  <mat-drawer #drawer class="sidenav" mode="side">
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" mode="side">
     <mat-nav-list>
       <a
         mat-list-item
@@ -18,9 +18,9 @@
         {{ item.label }}
       </a>
     </mat-nav-list>
-  </mat-drawer>
+  </mat-sidenav>
 
   <section class="main-content">
     <router-outlet #outlet="outlet"></router-outlet>
   </section>
-</mat-drawer-container>
+</mat-sidenav-container>
