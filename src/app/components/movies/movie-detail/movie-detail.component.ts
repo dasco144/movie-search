@@ -26,7 +26,7 @@ export class MovieDetailComponent implements OnInit {
       map((favourites) => favourites.includes(this.movie.imdbID)),
       shareReplay(1)
     );
-
+  }
 
   toggleFavourite(): void {
     this.movieService.toggleFavourite(this.movie.imdbID);
