@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Theme } from '../../../models/theme';
 import { ThemeService } from '../../../services/theme.service';
 
@@ -7,10 +7,10 @@ import { ThemeService } from '../../../services/theme.service';
   templateUrl: './theme-selector.component.html',
   styleUrls: ['./theme-selector.component.scss'],
 })
-export class ThemeSelectorComponent {
+export class ThemeSelectorComponent implements OnInit {
   currentTheme?: Theme;
 
-  themes = [
+  themes: Theme[] = [
     {
       name: 'deeppurple-amber',
       displayName: 'Deep Purple & Amber',
@@ -29,22 +29,15 @@ export class ThemeSelectorComponent {
     },
   ];
 
-  constructor(private themeService: ThemeService) {
+  constructor(private themeService: ThemeService) {}
+
+  ngOnInit() {
     // TODO Load theme from local storage
-    this.currentTheme = this.themes[0];
+    this.selectTheme(this.themes[0]);
   }
 
-  selectTheme(themeName: string) {
-    const theme = this.themes.find(
-      (currentTheme) => currentTheme.name === themeName
-    );
-
-    if (!theme) {
-      return;
-    }
-
+  selectTheme(theme: Theme) {
     this.currentTheme = theme;
-
     this.themeService.setTheme(this.currentTheme);
   }
 }
