@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { catchError, forkJoin, map, Observable, of, switchMap } from 'rxjs';
+import { catchError, forkJoin, Observable, of, switchMap } from 'rxjs';
+
 import { MovieDetail } from '../../models/movie-detail';
 import { MovieService } from '../../services/movie.service';
 

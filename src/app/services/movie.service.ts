@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+
 import { environment } from '../../environments/environment';
 import { MovieDetail, MovieSearchResponse } from '../models/movie-detail';
 

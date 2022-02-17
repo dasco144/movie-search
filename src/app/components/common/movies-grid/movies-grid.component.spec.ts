@@ -13,11 +13,11 @@ import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MockModule, MockPipe, MockService } from 'ng-mocks';
 import { Observable, Subject } from 'rxjs';
+
 import { MovieDetail } from '../../../models/movie-detail';
 import { MoviePosterPipe } from '../../../pipes/movie-poster.pipe';
 import { MovieService } from '../../../services/movie.service';
 import { getNewMovieDetail } from '../../../testing/helpers.spec';
-
 import { MoviesGridComponent } from './movies-grid.component';
 
 describe('MoviesGridComponent', () => {

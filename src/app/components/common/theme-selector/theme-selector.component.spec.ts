@@ -4,8 +4,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuItem, MatMenuModule } from '@angular/material/menu';
 import { By } from '@angular/platform-browser';
 import { MockModule, MockService } from 'ng-mocks';
-import { ThemeService } from '../../../services/theme.service';
 
+import { ThemeService } from '../../../services/theme.service';
 import { ThemeSelectorComponent } from './theme-selector.component';
 
 describe('ThemeSelectorComponent', () => {

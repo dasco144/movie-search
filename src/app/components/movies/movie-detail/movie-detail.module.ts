@@ -1,13 +1,14 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MovieDetailComponent } from './movie-detail.component';
-import { PipesModule } from '../../../pipes/pipes.module';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+
+import { PipesModule } from '../../../pipes/pipes.module';
+import { MovieDetailComponent } from './movie-detail.component';
 
 @NgModule({
   declarations: [MovieDetailComponent],

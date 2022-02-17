@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgModule } from '@angular/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MoviesComponent } from './movies.component';
-import { MoviesRoutingModule } from './movies-routing.module';
-import { MovieDetailModule } from './movie-detail/movie-detail.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 import { CommonComponentsModule } from '../common/common-components.module';
+import { MovieDetailModule } from './movie-detail/movie-detail.module';
+import { MoviesRoutingModule } from './movies-routing.module';
+import { MoviesComponent } from './movies.component';
 
 @NgModule({
   declarations: [MoviesComponent],

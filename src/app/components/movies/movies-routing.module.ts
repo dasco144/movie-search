@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { MovieDetailResolver } from '../../resolvers/movie-detail.resolver';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MoviesComponent } from './movies.component';

@@ -2,10 +2,10 @@ import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { ActivatedRouteSnapshot } from '@angular/router';
 import { MockService } from 'ng-mocks';
 import { of } from 'rxjs';
+
 import { MovieDetail } from '../models/movie-detail';
 import { MovieService } from '../services/movie.service';
 import { getNewMovieDetail } from '../testing/helpers.spec';
-
 import { MovieDetailResolver } from './movie-detail.resolver';
 
 describe('MovieDetailResolver', () => {

@@ -11,13 +11,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MockModule, MockService } from 'ng-mocks';
 import { Observable, of, Subject, throwError } from 'rxjs';
+
 import { MovieDetail } from '../../models/movie-detail';
 import { MovieService } from '../../services/movie.service';
 import { getNewMovieDetail } from '../../testing/helpers.spec';
 import { CommonComponentsModule } from '../common/common-components.module';
 import { MoviesGridComponent } from '../common/movies-grid/movies-grid.component';
 import { FavouritesRoutingModule } from './favourites-routing.module';
-
 import { FavouritesComponent } from './favourites.component';
 
 describe('FavouritesComponent', () => {

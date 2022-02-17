@@ -1,13 +1,14 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MoviesGridComponent } from './movies-grid/movies-grid.component';
-import { PipesModule } from '../../pipes/pipes.module';
-import { MatIconModule } from '@angular/material/icon';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatCardModule } from '@angular/material/card';
-import { ThemeSelectorComponent } from './theme-selector/theme-selector.component';
+import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
+import { PipesModule } from '../../pipes/pipes.module';
+import { MoviesGridComponent } from './movies-grid/movies-grid.component';
+import { ThemeSelectorComponent } from './theme-selector/theme-selector.component';
 
 @NgModule({
   declarations: [MoviesGridComponent, ThemeSelectorComponent],

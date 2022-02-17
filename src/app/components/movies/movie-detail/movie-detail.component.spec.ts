@@ -1,7 +1,6 @@
 import {
   ComponentFixture,
   fakeAsync,
-  flush,
   flushMicrotasks,
   TestBed,
   tick,
@@ -16,12 +15,12 @@ import { By } from '@angular/platform-browser';
 import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MockModule, MockService } from 'ng-mocks';
-import { Observable, of, Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+
 import { MovieDetail } from '../../../models/movie-detail';
 import { PipesModule } from '../../../pipes/pipes.module';
 import { MovieService } from '../../../services/movie.service';
 import { getNewMovieDetail } from '../../../testing/helpers.spec';
-
 import { MovieDetailComponent } from './movie-detail.component';
 
 describe('MovieDetailComponent', () => {

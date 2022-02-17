@@ -16,10 +16,10 @@ import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MockModule, MockService } from 'ng-mocks';
 import { of } from 'rxjs';
+
 import { MovieSearchResult } from '../../models/movie-detail';
 import { MovieService } from '../../services/movie.service';
 import { getNewMovieSearchResult } from '../../testing/helpers.spec';
-
 import { SearchComponent } from './search.component';
 
 describe('SearchComponent', () => {

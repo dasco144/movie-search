@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, shareReplay } from 'rxjs';
+
 import { MovieSearchResult } from '../../../models/movie-detail';
 import { MovieService } from '../../../services/movie.service';
 
@@ -9,7 +10,7 @@ import { MovieService } from '../../../services/movie.service';
   templateUrl: './movies-grid.component.html',
   styleUrls: ['./movies-grid.component.scss'],
 })
-export class MoviesGridComponent {
+export class MoviesGridComponent implements OnInit {
   @Input()
   movies: MovieSearchResult[] = [];
 

@@ -13,6 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MockModule, MockService } from 'ng-mocks';
 import { Observable, of, throwError } from 'rxjs';
+
 import {
   MovieSearchResponse,
   MovieSearchResult,
@@ -22,7 +23,6 @@ import { getNewMovieSearchResult } from '../../testing/helpers.spec';
 import { CommonComponentsModule } from '../common/common-components.module';
 import { MovieDetailModule } from './movie-detail/movie-detail.module';
 import { MoviesRoutingModule } from './movies-routing.module';
-
 import { MoviesComponent } from './movies.component';
 
 describe('MoviesComponent', () => {

@@ -119,9 +119,21 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "movie-search"
+  "defaultProject": "movie-search",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

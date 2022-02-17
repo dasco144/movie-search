@@ -1,15 +1,16 @@
+import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
-import { MockModule } from 'ng-mocks';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListItem, MatListModule } from '@angular/material/list';
 import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
 import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
 import { RouterLinkWithHref, RouterOutlet } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MockModule } from 'ng-mocks';
+
+import { AppComponent } from './app.component';
 import { CommonComponentsModule } from './components/common/common-components.module';
 
 describe('AppComponent', () => {

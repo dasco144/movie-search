@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map, Observable, shareReplay } from 'rxjs';
+
 import { MovieDetail } from '../../../models/movie-detail';
 import { MovieService } from '../../../services/movie.service';
 

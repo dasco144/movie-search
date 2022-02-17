@@ -1,20 +1,20 @@
-import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import {
   HttpClientTestingModule,
   HttpTestingController,
 } from '@angular/common/http/testing';
+import { fakeAsync, TestBed, tick } from '@angular/core/testing';
+
+import { environment } from '../../environments/environment';
 import {
   MovieDetail,
   MovieSearchResponse,
   MovieSearchResult,
 } from '../models/movie-detail';
-
-import { MovieService } from './movie.service';
-import { environment } from '../../environments/environment';
 import {
   getNewMovieDetail,
   getNewMovieSearchResult,
 } from '../testing/helpers.spec';
+import { MovieService } from './movie.service';
 
 describe('MovieService', () => {
   let service: MovieService;

@@ -8,6 +8,7 @@ import { NgModel } from '@angular/forms';
 import { MatInput } from '@angular/material/input';
 import { Router } from '@angular/router';
 import { first, from, map, switchMap } from 'rxjs';
+
 import { MovieService } from '../../services/movie.service';
 
 @Component({

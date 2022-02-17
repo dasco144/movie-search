@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, map, Observable, switchMap } from 'rxjs';
+
 import { MovieSearchResult } from '../../models/movie-detail';
 import { MovieService } from '../../services/movie.service';
 
