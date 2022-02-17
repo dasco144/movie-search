@@ -20,8 +20,10 @@ export class MovieDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // Get the movie detail from the activated route snapshot
     this.movie = this.activatedRoute.snapshot.data['movie'];
 
+    // Setup the observable so the template can react to changes in favourites
     this.isFavourited$ = this.movieService.userFavourites$.pipe(
       map((favourites) => favourites.includes(this.movie.imdbID)),
       shareReplay(1)

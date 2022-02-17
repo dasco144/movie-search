@@ -31,7 +31,6 @@ export class FavouritesComponent implements OnInit {
         // Since the api doesn't have the ability to get multiple movies by their imdb ids,
         // I will instead request each movie individually and wait for their observables to complete via the forkJoin function
         // Ideally, the backend would have an api to request multiple movies via their imdb ids in a single request
-
         const favouriteObs = favourites.map((favourite) =>
           this.movieService.getByImdbID(favourite)
         );
@@ -43,10 +42,12 @@ export class FavouritesComponent implements OnInit {
         );
       }),
       catchError((error: Error) => {
+        // Display a snackbar with an error message
         this.snackBar.open(error.message, undefined, {
           duration: 5000,
           verticalPosition: 'top',
         });
+        // Navigate back to home on an error
         void this.router.navigate(['../'], { relativeTo: this.activatedRoute });
         return [];
       })
