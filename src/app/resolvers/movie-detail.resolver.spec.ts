@@ -1,16 +1,57 @@
 import { TestBed } from '@angular/core/testing';
+import { ActivatedRouteSnapshot } from '@angular/router';
+import { MockService } from 'ng-mocks';
+import { of } from 'rxjs';
+import { MovieDetail } from '../models/movie-detail';
+import { MovieService } from '../services/movie.service';
+import { getNewMovieDetail } from '../testing/helpers.spec';
 
 import { MovieDetailResolver } from './movie-detail.resolver';
 
 describe('MovieDetailResolver', () => {
   let resolver: MovieDetailResolver;
 
+  let movieService: MovieService;
+  let movie: MovieDetail;
+
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [
+        { provide: MovieService, useValue: MockService(MovieService) },
+      ],
+    });
     resolver = TestBed.inject(MovieDetailResolver);
   });
 
-  it('should be created', () => {
-    expect(resolver).toBeTruthy();
+  beforeEach(() => {
+    movie = getNewMovieDetail(1);
+
+    movieService = TestBed.inject(MovieService);
+    spyOn(movieService, 'getByImdbID').and.returnValue(of());
+  });
+
+  it('should resolve with movie detail from service', () => {
+    const snapshot = new ActivatedRouteSnapshot();
+    snapshot.params = { id: movie.imdbID };
+
+    const resolve$ = resolver.resolve(snapshot);
+
+    let movieDetail: MovieDetail = getNewMovieDetail(999);
+    resolve$.subscribe((res) => (res = movieDetail));
+
+    expect(movieService.getByImdbID).toHaveBeenCalledWith(movie.imdbID);
+    expect(movieDetail).toEqual(movie);
+  });
+
+  it('should handle no id set on snapshot params', () => {
+    const snapshot = new ActivatedRouteSnapshot();
+
+    const resolve$ = resolver.resolve(snapshot);
+
+    let movieDetail: MovieDetail = getNewMovieDetail(999);
+    resolve$.subscribe((res) => (res = movieDetail));
+
+    expect(movieService.getByImdbID).not.toHaveBeenCalled();
+    expect(movieDetail).toBeUndefined();
   });
 });
