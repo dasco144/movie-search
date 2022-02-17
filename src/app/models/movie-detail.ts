@@ -1,8 +1,14 @@
 import { MovieType } from '../enums/movie-type';
 
-export interface MovieDetail {
+export interface MovieSearchResult {
   Title: string;
   Year: string;
+  imdbID: string;
+  Type: MovieType;
+  Poster: string;
+}
+
+export interface MovieDetail extends MovieSearchResult {
   Rated: string;
   Released: string;
   Runtime: string;
@@ -14,13 +20,10 @@ export interface MovieDetail {
   Language: string;
   Country: string;
   Awards: string;
-  Poster: string;
   Ratings: MovieRating[];
   Metascore: string;
   imdbRating: string;
   imdbVotes: string;
-  imdbID: string;
-  Type: MovieType;
   DVD: string;
   BoxOffice: string;
   Production: string;

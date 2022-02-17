@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { MovieSearchResult } from '../models/movie-search-result';
-import { MovieDetail } from '../models/movie-detail';
+import { MovieDetail, MovieSearchResult } from '../models/movie-detail';
 
 // Create a type for reuse when retrieving the movie search results
 type MovieSearchResponse = {

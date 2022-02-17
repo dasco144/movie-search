@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, shareReplay } from 'rxjs';
-import { MovieDetail } from '../../../models/movie-detail';
-import { MovieSearchResult } from '../../../models/movie-search-result';
+import { MovieSearchResult } from '../../../models/movie-detail';
 import { MovieService } from '../../../services/movie.service';
 
 @Component({
@@ -12,7 +11,7 @@ import { MovieService } from '../../../services/movie.service';
 })
 export class MoviesGridComponent {
   @Input()
-  movies: MovieSearchResult[] | MovieDetail[] = [];
+  movies: MovieSearchResult[] = [];
 
   favourites$!: Observable<string[]>;
 
