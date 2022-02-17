@@ -35,8 +35,6 @@ describe('MovieDetailComponent', () => {
   let userFavouritesSubj: Subject<string[]>;
 
   beforeEach(async () => {
-    userFavouritesSubj = new Subject<string[]>();
-
     await TestBed.configureTestingModule({
       declarations: [MovieDetailComponent],
       imports: [
@@ -71,6 +69,8 @@ describe('MovieDetailComponent', () => {
 
     movieService = TestBed.inject(MovieService);
     spyOn(movieService, 'toggleFavourite');
+
+    userFavouritesSubj = new Subject<string[]>();
 
     movieService.userFavourites$ = userFavouritesSubj;
 

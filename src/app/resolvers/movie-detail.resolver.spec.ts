@@ -1,4 +1,4 @@
-import { TestBed } from '@angular/core/testing';
+import { fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { ActivatedRouteSnapshot } from '@angular/router';
 import { MockService } from 'ng-mocks';
 import { of } from 'rxjs';
@@ -27,31 +27,33 @@ describe('MovieDetailResolver', () => {
     movie = getNewMovieDetail(1);
 
     movieService = TestBed.inject(MovieService);
-    spyOn(movieService, 'getByImdbID').and.returnValue(of());
+    spyOn(movieService, 'getByImdbID').and.returnValue(of(movie));
   });
 
-  it('should resolve with movie detail from service', () => {
+  it('should resolve with movie detail from service', fakeAsync(() => {
     const snapshot = new ActivatedRouteSnapshot();
     snapshot.params = { id: movie.imdbID };
 
     const resolve$ = resolver.resolve(snapshot);
 
-    let movieDetail: MovieDetail = getNewMovieDetail(999);
-    resolve$.subscribe((res) => (res = movieDetail));
+    let movieDetail: MovieDetail | undefined = getNewMovieDetail(999);
+    resolve$.subscribe((res) => (movieDetail = res));
+    tick();
 
     expect(movieService.getByImdbID).toHaveBeenCalledWith(movie.imdbID);
     expect(movieDetail).toEqual(movie);
-  });
+  }));
 
-  it('should handle no id set on snapshot params', () => {
+  it('should handle no id set on snapshot params', fakeAsync(() => {
     const snapshot = new ActivatedRouteSnapshot();
 
     const resolve$ = resolver.resolve(snapshot);
 
-    let movieDetail: MovieDetail = getNewMovieDetail(999);
-    resolve$.subscribe((res) => (res = movieDetail));
+    let movieDetail: MovieDetail | undefined = getNewMovieDetail(999);
+    resolve$.subscribe((res) => (movieDetail = res));
+    tick();
 
     expect(movieService.getByImdbID).not.toHaveBeenCalled();
     expect(movieDetail).toBeUndefined();
-  });
+  }));
 });

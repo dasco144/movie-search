@@ -33,8 +33,6 @@ describe('FavouritesComponent', () => {
   let userFavouritesSubj: Subject<string[]>;
 
   beforeEach(async () => {
-    userFavouritesSubj = new Subject<string[]>();
-
     await TestBed.configureTestingModule({
       declarations: [FavouritesComponent],
       imports: [
@@ -72,6 +70,8 @@ describe('FavouritesComponent', () => {
     getSpy = spyOn(movieService, 'getByImdbID').and.returnValues(
       ...movieDetails.map((movieDetail) => of(movieDetail))
     );
+
+    userFavouritesSubj = new Subject<string[]>();
 
     movieService.userFavourites$ = userFavouritesSubj;
   });

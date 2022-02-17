@@ -10,6 +10,7 @@ import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { RouterLinkWithHref, RouterOutlet } from '@angular/router';
+import { CommonComponentsModule } from './components/common/common-components.module';
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
@@ -27,6 +28,7 @@ describe('AppComponent', () => {
         MockModule(MatToolbarModule),
         MockModule(MatButtonModule),
         MockModule(MatIconModule),
+        MockModule(CommonComponentsModule),
       ],
     }).compileComponents();
   });
