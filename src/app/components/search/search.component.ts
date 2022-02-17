@@ -7,7 +7,7 @@ import {
 import { NgModel } from '@angular/forms';
 import { MatInput } from '@angular/material/input';
 import { Router } from '@angular/router';
-import { first, map, switchMap } from 'rxjs';
+import { first, from, map, switchMap } from 'rxjs';
 import { MovieService } from '../../services/movie.service';
 
 @Component({
@@ -68,7 +68,9 @@ export class SearchComponent implements AfterViewInit {
         // Get the first movie from the results
         map((results) => results.Search[0]),
         // Navigate to movie detail route with the first movie's id
-        switchMap((movie) => this.router.navigate(['/movies', movie.imdbID]))
+        switchMap((movie) =>
+          from(this.router.navigate(['/movies', movie.imdbID]))
+        )
       )
       .subscribe();
   }
