@@ -8,6 +8,12 @@ export interface MovieSearchResult {
   Poster: string;
 }
 
+export type MovieSearchResponse = {
+  Response: boolean;
+  Search: MovieSearchResult[];
+  totalResults: number;
+};
+
 export interface MovieDetail extends MovieSearchResult {
   Rated: string;
   Released: string;

@@ -2,14 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { MovieDetail, MovieSearchResult } from '../models/movie-detail';
-
-// Create a type for reuse when retrieving the movie search results
-type MovieSearchResponse = {
-  Response: boolean;
-  Search: MovieSearchResult[];
-  totalResults: number;
-};
+import { MovieDetail, MovieSearchResponse } from '../models/movie-detail';
 
 @Injectable({
   providedIn: 'root',
@@ -63,22 +56,14 @@ export class MovieService {
     this.addToFavourites(id);
   }
 
-  addToFavourites(id: string): void {
-    if (this.userFavourites.includes(id)) {
-      return;
-    }
-
+  private addToFavourites(id: string): void {
     // Adds the id to the favourites if it is not already in the array
     this.userFavourites.push(id);
     // And then emit from the subject to notify the observers of a change to the favorites
     this.userFavouritesSubj.next(this.userFavourites);
   }
 
-  removeFromFavourites(id: string): void {
-    if (!this.userFavourites.includes(id)) {
-      return;
-    }
-
+  private removeFromFavourites(id: string): void {
     // Removes the id from the favourites if it is already in the array
     this.userFavourites = this.userFavourites.filter((favId) => id !== favId);
     // And then emit from the subject to notify the observers of a change to the favorites
